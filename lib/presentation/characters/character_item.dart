@@ -17,7 +17,7 @@ class CharacterItem extends StatelessWidget {
             Positioned.fill(
                 child: Image.network(
               _character.image,
-              fit: BoxFit.fill,
+              fit: BoxFit.fitHeight,
             )),
             Align(
               alignment: Alignment.bottomCenter,

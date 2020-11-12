@@ -27,7 +27,7 @@ class CharacterApi {
       final request = await _httpClient.getUrl(uri);
       final response = await request.close();
 
-      if (response.statusCode != HttpStatus.OK) {
+      if (response.statusCode != HttpStatus.ok) {
         print(
             'CharacterApi._getJson($uri) status code is ${response.statusCode}');
         return null;
