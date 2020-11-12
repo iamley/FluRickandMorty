@@ -4,9 +4,6 @@ import 'package:FluRickandMorty/domain/entities/character.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-const double _kFlingVelocity = 2.0;
-final String _defaultTitle = "Character";
-
 class _BackdropPanel extends StatelessWidget {
   final VoidCallback onTap;
   final GestureDragUpdateCallback onVerticalDragUpdate;
@@ -137,13 +134,11 @@ class _BackdropState extends State<Backdrop>
 
     if (widget.currentCharacter != oldWidget.currentCharacter) {
       setState(() {
-        _controller.fling(
-            velocity:
-                _backdropPanelVisible ? -_kFlingVelocity : _kFlingVelocity);
+        _controller.fling(velocity: _backdropPanelVisible ? -2.0 : 2.0);
       });
     } else if (!_backdropPanelVisible && widget.currentCharacter != null) {
       setState(() {
-        _controller.fling(velocity: _kFlingVelocity);
+        _controller.fling(velocity: 2.0);
       });
     }
   }
@@ -155,8 +150,7 @@ class _BackdropState extends State<Backdrop>
   }
 
   void _toggleBackdropPanelVisibility() {
-    _controller.fling(
-        velocity: _backdropPanelVisible ? -_kFlingVelocity : _kFlingVelocity);
+    _controller.fling(velocity: _backdropPanelVisible ? -2.0 : 2.0);
   }
 
   double get _backdropHeight {
@@ -179,13 +173,11 @@ class _BackdropState extends State<Backdrop>
         details.velocity.pixelsPerSecond.dy / _backdropHeight;
 
     if (flingVelocity < 0.0) {
-      _controller.fling(velocity: math.max(_kFlingVelocity, -flingVelocity));
+      _controller.fling(velocity: math.max(2.0, -flingVelocity));
     } else if (flingVelocity > 0.0) {
-      _controller.fling(velocity: math.min(-_kFlingVelocity, -flingVelocity));
+      _controller.fling(velocity: math.min(-2.0, -flingVelocity));
     } else {
-      _controller.fling(
-          velocity:
-              _controller.value < 0.5 ? -_kFlingVelocity : _kFlingVelocity);
+      _controller.fling(velocity: _controller.value < 0.5 ? -2.0 : 2.0);
     }
   }
 
@@ -218,7 +210,7 @@ class _BackdropState extends State<Backdrop>
               onVerticalDragUpdate: _handleDragUpdate,
               onVerticalDragEnd: _handleDragEnd,
               title: Text(widget.currentCharacter == null
-                  ? _defaultTitle
+                  ? 'Personajes'
                   : widget.currentCharacter.name),
               child: widget.frontPanel,
             ),

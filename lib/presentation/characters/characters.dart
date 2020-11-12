@@ -42,7 +42,6 @@ class _CharactersPageState extends State<CharactersPage> {
   void _onCharacterTapped(Character character) {
     setState(() {
       _currentCharacter = character;
-      print("Personaje tocado");
     });
   }
 
