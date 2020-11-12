@@ -31,7 +31,6 @@ class CharacterDetail extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16.0),
       child: ListView(
         children: <Widget>[
-          Image.network(_character.image),
           Center(
             child: Padding(
               padding: EdgeInsets.only(bottom: 16.0),

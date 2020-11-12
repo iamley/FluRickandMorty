@@ -4,14 +4,14 @@ import 'package:FluRickandMorty/domain/entities/character.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-class _BackdropPanel extends StatelessWidget {
+class BackdropPanel extends StatelessWidget {
   final VoidCallback onTap;
   final GestureDragUpdateCallback onVerticalDragUpdate;
   final GestureDragEndCallback onVerticalDragEnd;
   final Widget title;
   final Widget child;
 
-  const _BackdropPanel(
+  const BackdropPanel(
       {Key key,
       this.onTap,
       this.onVerticalDragEnd,
@@ -205,7 +205,7 @@ class _BackdropState extends State<Backdrop>
           widget.backPanel,
           PositionedTransition(
             rect: panelAnimation,
-            child: _BackdropPanel(
+            child: BackdropPanel(
               onTap: _toggleBackdropPanelVisibility,
               onVerticalDragUpdate: _handleDragUpdate,
               onVerticalDragEnd: _handleDragEnd,
