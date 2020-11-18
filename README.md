@@ -1,6 +1,6 @@
 # FluRickandMorty
 
-A new Flutter project.
+List of characters from the rick and morty series.
 
 ## Getting Started
 
